@@ -3,7 +3,7 @@ import Header from "@/app/_components/Header";
 import AvailableDays from "@/app/_components/AvailableDay";
 import {useState} from "react";
 import ProfessorForm from "@/app/_components/tabs/ProfessorForm";
-import ClassForm from "@/app/_components/tabs/ClassForm";
+import SubjectForm from "@/app/_components/tabs/SubjectForm";
 import GenerateSchedule from "@/app/_components/tabs/GenerateSchedule";
 
 enum SelectedTab {
@@ -46,7 +46,7 @@ export default function Home() {
                 </div>
                 <article className="w-full h-full mt-8">
                     {selectedTab === SelectedTab.PROFESSOR && <ProfessorForm/>}
-                    {selectedTab === SelectedTab.DISCIPLINA && <ClassForm/>}
+                    {selectedTab === SelectedTab.DISCIPLINA && <SubjectForm/>}
                     {selectedTab === SelectedTab.CRONOGRAMA && <GenerateSchedule/>}
                 </article>
             </section>

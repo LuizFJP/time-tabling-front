@@ -1,6 +1,6 @@
 import AvailableDays from "@/app/_components/AvailableDay";
 
-export default function ClassForm() {
+export default function SubjectForm() {
     return (
         <form className="flex mx-auto my-0 flex-1 w-full flex-col gap-10 items-center justify-items-start">
             <label className="text-slate-950 text-sm flex flex-col h-12 font-bold m-0 w-3/6">
