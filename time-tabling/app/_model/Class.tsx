@@ -1,6 +1,6 @@
 import {Professor} from "@/app/_model/Professor";
 
-export type Class = {
+export type Subject = {
     name: string;
     code: string;
     semester: string;

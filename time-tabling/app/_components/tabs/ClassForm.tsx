@@ -47,8 +47,8 @@ export default function ClassForm() {
                 ></select>
             </label>
             <div className="w-4/6 flex h-full">
-                <AvailableDays getAvailableDays={() => {}}/>
-                <AvailableDays getAvailableDays={() => {}}/>
+                <AvailableDays getAvailableDays={() => {}} title={"Dias da Semana Indisponíveis"}/>
+                <AvailableDays getAvailableDays={() => {}} title={"Dias da Semana Exigidos"}/>
             </div>
             <button
                 className="bg-blue-500 text-white text-base font-bold rounded-lg  p-3 mt-2 w-1/6 hover:bg-blue-700"

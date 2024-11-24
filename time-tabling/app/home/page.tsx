@@ -19,7 +19,7 @@ export default function Home() {
     return (
         <main className="w-full h-screen">
             <Header/>
-            <section className="bg-white w-9/12 h-4/5 mx-auto flex flex-col my-9 rounded-2xl">
+            <section className="bg-white w-11/12 h-4/5 mx-auto flex flex-col my-9 rounded-2xl">
                 <div>
                     <nav className="bg-blue-500 text-white w-full h-[64px] rounded p-4 flex ">
                         <ul className="flex items-center justify-between w-full h-full text-2xl">

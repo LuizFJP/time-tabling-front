@@ -15,8 +15,7 @@ export default function ProfessorForm() {
                        className="p-2 rounded-lg text-base border-slate-500 border-2 focus:border-red-800"
                 />
             </label>
-            <AvailableDays getAvailableDays={() => {
-            }}/>
+            <AvailableDays getAvailableDays={() => {}} title={"Dias da Semana Indisponíveis"}/>
             <button
                 className="bg-blue-500 text-white text-base font-bold rounded-lg  p-3 mt-2 w-1/6 hover:bg-blue-700"
                 type="submit">Cadastrar

@@ -4,9 +4,10 @@ import {UnavailableWeekDays, WeekDaysEnum} from "@/app/_model/WeekDaysEnum";
 
 interface AvailableDaysProps {
     getAvailableDays: (unavailableDays: UnavailableWeekDays) => void;
+    title: string
 }
 
-export default function AvailableDays({getAvailableDays}: AvailableDaysProps) {
+export default function AvailableDays({getAvailableDays, title}: AvailableDaysProps) {
     const [days, setDays] = useState<UnavailableWeekDays>({
         [WeekDaysEnum.SEGUNDA]: false,
         [WeekDaysEnum.TERCA]: false,
@@ -25,11 +26,11 @@ export default function AvailableDays({getAvailableDays}: AvailableDaysProps) {
         <div className="w-full">
             <div className="text-slate-950 text-sm flex flex-col h-12 mx-auto mt-0 font-bold m-0 w-3/6">
                 <div className="mb-2">
-                    Dias da Semana Indisponíveis
+                    {title}
                 </div>
-                <div className="flex items-center justify-between w-2/6 gap-3">
+                <div className="flex items-center justify-between gap-4 w-full">
                     <div
-                        className={`flex items-center justify-center w-5 h-5 ${days[WeekDaysEnum.SEGUNDA] ? "bg-red-800" : "bg-gray-500"} text-white rounded-lg`}>
+                        className={`flex items-center justify-center w-10 h-8 ${days[WeekDaysEnum.SEGUNDA] ? "bg-red-800" : "bg-gray-500"} text-white rounded-lg`}>
                         <button onClick={(event) => {
                             event.preventDefault();
                             handleDays(WeekDaysEnum.SEGUNDA)
@@ -38,7 +39,7 @@ export default function AvailableDays({getAvailableDays}: AvailableDaysProps) {
                         </button>
                     </div>
                     <div
-                        className={`flex items-center justify-center w-10 h-10 ${days[WeekDaysEnum.TERCA] ? "bg-red-800" : "bg-gray-500"} text-white rounded-lg`}>
+                        className={`flex items-center justify-center w-10 h-8 ${days[WeekDaysEnum.TERCA] ? "bg-red-800" : "bg-gray-500"} text-white rounded-lg`}>
                         <button onClick={(event) => {
                             event.preventDefault();
                             handleDays(WeekDaysEnum.TERCA)
@@ -47,7 +48,7 @@ export default function AvailableDays({getAvailableDays}: AvailableDaysProps) {
                         </button>
                     </div>
                     <div
-                        className={`flex items-center justify-center w-10 h-10 ${days[WeekDaysEnum.QUARTA] ? "bg-red-800" : "bg-gray-500"} text-white rounded-lg`}>
+                        className={`flex items-center justify-center w-10 h-8 ${days[WeekDaysEnum.QUARTA] ? "bg-red-800" : "bg-gray-500"} text-white rounded-lg`}>
                         <button onClick={(event) => {
                             event.preventDefault();
                             handleDays(WeekDaysEnum.QUARTA)
@@ -56,7 +57,7 @@ export default function AvailableDays({getAvailableDays}: AvailableDaysProps) {
                         </button>
                     </div>
                     <div
-                        className={`flex items-center justify-center w-10 h-10 ${days[WeekDaysEnum.QUINTA] ? "bg-red-800" : "bg-gray-500"} text-white rounded-lg`}>
+                        className={`flex items-center justify-center w-10 h-8 ${days[WeekDaysEnum.QUINTA] ? "bg-red-800" : "bg-gray-500"} text-white rounded-lg`}>
                         <button onClick={(event) => {
                             event.preventDefault();
                             handleDays(WeekDaysEnum.QUINTA)
@@ -65,7 +66,7 @@ export default function AvailableDays({getAvailableDays}: AvailableDaysProps) {
                         </button>
                     </div>
                     <div
-                        className={`flex items-center justify-center w-10 h-10 ${days[WeekDaysEnum.SEXTA] ? "bg-red-800" : "bg-gray-500"} text-white rounded-lg`}>
+                        className={`flex items-center justify-center w-10 h-8 ${days[WeekDaysEnum.SEXTA] ? "bg-red-800" : "bg-gray-500"} text-white rounded-lg`}>
                         <button onClick={(event) => {
                             event.preventDefault();
                             handleDays(WeekDaysEnum.SEXTA)
@@ -74,7 +75,7 @@ export default function AvailableDays({getAvailableDays}: AvailableDaysProps) {
                         </button>
                     </div>
                     <div
-                        className={`flex items-center justify-center w-10 h-10 ${days[WeekDaysEnum.SABADO] ? "bg-red-800" : "bg-gray-500"} text-white rounded-lg`}>
+                        className={`flex items-center justify-center w-10 h-8 ${days[WeekDaysEnum.SABADO] ? "bg-red-800" : "bg-gray-500"} text-white rounded-lg`}>
                         <button onClick={(event) => {
                             event.preventDefault();
                             handleDays(WeekDaysEnum.SABADO)
