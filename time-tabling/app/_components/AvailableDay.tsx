@@ -1,56 +1,89 @@
 "use client";
 import {useState} from "react";
-
-enum WeekDays {
-    SEGUNDA = "segunda",
-    TERCA = "terca",
-    QUARTA = "quarta",
-    QUINTA = "quinta",
-    SEXTA = "sexta",
-    SABADO = "sabado",
-}
-
-type AvailableWeekDays = {
-    [WeekDays.SEGUNDA]: boolean;
-    [WeekDays.TERCA]: boolean;
-    [WeekDays.QUARTA]: boolean;
-    [WeekDays.QUINTA]: boolean;
-    [WeekDays.SEXTA]: boolean;
-    [WeekDays.SABADO]: boolean;
-};
+import {UnavailableWeekDays, WeekDaysEnum} from "@/app/_model/WeekDaysEnum";
 
 interface AvailableDaysProps {
-    getAvailableDays: (days: AvailableWeekDays) => void;
+    getAvailableDays: (unavailableDays: UnavailableWeekDays) => void;
 }
 
 export default function AvailableDays({getAvailableDays}: AvailableDaysProps) {
-    const [days, setDays] = useState<AvailableWeekDays>({
-        "segunda": true,
-        "terca": true,
-        "quarta": true,
-        "quinta": true,
-        "sexta": true,
-        "sabado": true,
+    const [days, setDays] = useState<UnavailableWeekDays>({
+        [WeekDaysEnum.SEGUNDA]: false,
+        [WeekDaysEnum.TERCA]: false,
+        [WeekDaysEnum.QUARTA]: false,
+        [WeekDaysEnum.QUINTA]: false,
+        [WeekDaysEnum.SEXTA]: false,
+        [WeekDaysEnum.SABADO]: false,
     });
 
-    const handleDays = (day: WeekDays) => {
+    const handleDays = (day: WeekDaysEnum) => {
         setDays({...days, [day]: !days[day]});
         getAvailableDays(days);
     }
 
     return (
         <div className="w-full">
-            <label className="text-slate-950 text-sm flex flex-col h-12 mx-auto mt-0 font-bold m-0 w-3/6">
-                Dias da Semana Disponíveis
-                <div className="flex items-center justify-between w-2/6 gap-3">
-                    {Object.entries(days).map(([day, isAvailable]) => (
-                        <div key={day} className={`mt-1 py-2 px-3 flex items-center justify-center cursor-pointer 
-                            rounded-md text-white font-semibold transition ${isAvailable ? "bg-green-900" : "bg-red-800"}`}
-                             onClick={() => handleDays(day as WeekDays)}>
-                            {day.charAt(0).toUpperCase()}
-                        </div>))}
+            <div className="text-slate-950 text-sm flex flex-col h-12 mx-auto mt-0 font-bold m-0 w-3/6">
+                <div className="mb-2">
+                    Dias da Semana Indisponíveis
                 </div>
-            </label>
+                <div className="flex items-center justify-between w-2/6 gap-3">
+                    <div
+                        className={`flex items-center justify-center w-5 h-5 ${days[WeekDaysEnum.SEGUNDA] ? "bg-red-800" : "bg-gray-500"} text-white rounded-lg`}>
+                        <button onClick={(event) => {
+                            event.preventDefault();
+                            handleDays(WeekDaysEnum.SEGUNDA)
+                        }} className="cursor-pointer">
+                            S
+                        </button>
+                    </div>
+                    <div
+                        className={`flex items-center justify-center w-10 h-10 ${days[WeekDaysEnum.TERCA] ? "bg-red-800" : "bg-gray-500"} text-white rounded-lg`}>
+                        <button onClick={(event) => {
+                            event.preventDefault();
+                            handleDays(WeekDaysEnum.TERCA)
+                        }} className="cursor-pointer">
+                            T
+                        </button>
+                    </div>
+                    <div
+                        className={`flex items-center justify-center w-10 h-10 ${days[WeekDaysEnum.QUARTA] ? "bg-red-800" : "bg-gray-500"} text-white rounded-lg`}>
+                        <button onClick={(event) => {
+                            event.preventDefault();
+                            handleDays(WeekDaysEnum.QUARTA)
+                        }} className="cursor-pointer">
+                            Q
+                        </button>
+                    </div>
+                    <div
+                        className={`flex items-center justify-center w-10 h-10 ${days[WeekDaysEnum.QUINTA] ? "bg-red-800" : "bg-gray-500"} text-white rounded-lg`}>
+                        <button onClick={(event) => {
+                            event.preventDefault();
+                            handleDays(WeekDaysEnum.QUINTA)
+                        }} className="cursor-pointer">
+                            Q
+                        </button>
+                    </div>
+                    <div
+                        className={`flex items-center justify-center w-10 h-10 ${days[WeekDaysEnum.SEXTA] ? "bg-red-800" : "bg-gray-500"} text-white rounded-lg`}>
+                        <button onClick={(event) => {
+                            event.preventDefault();
+                            handleDays(WeekDaysEnum.SEXTA)
+                        }} className="cursor-pointer">
+                            S
+                        </button>
+                    </div>
+                    <div
+                        className={`flex items-center justify-center w-10 h-10 ${days[WeekDaysEnum.SABADO] ? "bg-red-800" : "bg-gray-500"} text-white rounded-lg`}>
+                        <button onClick={(event) => {
+                            event.preventDefault();
+                            handleDays(WeekDaysEnum.SABADO)
+                        }} className="cursor-pointer">
+                            S
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }
